@@ -1,32 +1,27 @@
-import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
+import {filter} from 'lodash';
+import {sentenceCase} from 'change-case';
 import {useEffect, useState} from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
   Card,
-  Table,
-  Stack,
-  Avatar,
-  Button,
   Checkbox,
-  TableRow,
+  Container,
+  Stack,
+  Table,
   TableBody,
   TableCell,
-  Container,
-  Typography,
   TableContainer,
   TablePagination,
+  TableRow,
+  Typography,
 } from '@mui/material';
 // components
-import Cookies from 'js-cookie'
 import axios from "axios";
 import Page from '../components/Page';
 import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
-import Iconify from '../components/Iconify';
 import SearchNotFound from '../components/SearchNotFound';
-import { UserListHead, UserListToolbar} from '../sections/@dashboard/user';
+import {UserListHead, UserListToolbar} from '../sections/@dashboard/user';
 // mock
 // ----------------------------------------------------------------------
 
@@ -86,7 +81,7 @@ export default function User() {
   const [userList, setUserList] = useState([]);
 
   function getData() {
-    axios.get(`http://34.233.123.100:8080/api/v1/home`, {headers: {Authorization: localStorage.getItem("jwtToken")}})
+    axios.get(`http://ec2-34-233-123-100.compute-1.amazonaws.com:8080/api/v1/home`, {headers: {Authorization: localStorage.getItem("jwtToken")}})
         .then(res => {
           if (res.data.statusCode === 200) {
             setUserList(res.data.data.content);

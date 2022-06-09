@@ -14,7 +14,7 @@ import Logout from "./auth/Logout";
 export default function Router() {
 
   const isAuthenticated = () => {
-    const jwtToken = Cookies.get("jwtToken");
+    const jwtToken = localStorage.getItem("jwtToken");
     return jwtToken && jwtToken.startsWith("Bearer");
   }
 
