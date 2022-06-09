@@ -46,7 +46,7 @@ export default function UserListToolbar({selected, filterName, onFilterName}) {
     const handleClick = (selected, btnType) => {
 
 
-        axios.put(HOME_URL + btnType, {userIds: selected}, {headers: {Authorization: Cookies.get("jwtToken")}}).then(res => {
+        axios.put(HOME_URL + btnType, {userIds: selected}, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(res => {
             if (res.status === 200) {
                 console.log("inside userLIstToolBar", res);
                 navigate("/");

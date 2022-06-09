@@ -45,10 +45,10 @@ function Auth() {
         axios.post(AUTH_URL + (forRegister ? "register" : "login"), auth).then((res) => {
             console.log(res);
             if (res.data.statusCode === 200) {
-                const jwtToken = Cookies.set("jwtToken", res.data.accessToken, { expires: 1, path: "/", secure: true });
+                // const jwtToken = Cookies.set("jwtToken", res.data.accessToken, { expires: 1, path: "/", secure: true });
+                localStorage.setItem("jwtToken", res.data.accessToken);
                 account.email = res.data.email;
                 account.displayName = res.data.name;
-                console.log(jwtToken);
                 navigation("/dashboard/user", {state: {...account}})
             }else {
                 // eslint-disable-next-line no-alert
