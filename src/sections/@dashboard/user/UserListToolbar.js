@@ -5,12 +5,11 @@ import {styled} from '@mui/material/styles';
 import {Button, InputAdornment, OutlinedInput, Toolbar, Tooltip, Typography} from '@mui/material';
 // component
 import axios from "axios";
-import Cookies from 'js-cookie';
 import Iconify from '../../../components/Iconify';
 
 
 // ----------------------------------------------------------------------
-const HOME_URL = "http://ec2-34-233-123-100.compute-1.amazonaws.com:8080/api/v1/home/";
+const HOME_URL = "http://34.233.123.100:8080/api/v1/home/";
 
 const RootStyle = styled(Toolbar)(({theme}) => ({
     height: 96,
@@ -45,19 +44,17 @@ export default function UserListToolbar({selected, filterName, onFilterName}) {
     const navigate = useNavigate();
     const handleClick = (selected, btnType) => {
 
-
         axios.put(HOME_URL + btnType, {userIds: selected}, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(res => {
             if (res.status === 200) {
                 console.log("inside userLIstToolBar", res);
                 navigate("/");
-                // navigate("/", {replace: true})
             } else {
                 navigate("/logout");
             }
         }).catch(() => {
+            console.log(btnType, 'request error');
             navigate("/login");
         })
-
     }
 
     return (

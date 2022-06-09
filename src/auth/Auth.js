@@ -5,7 +5,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {useReducer, useState} from "react";
 import account from "../_mock/account";
 
-const AUTH_URL = "http://ec2-34-233-123-100.compute-1.amazonaws.com:8080/api/v1/auth/";
+const AUTH_URL = "http://34.233.123.100:8080/api/v1/auth/";
 
 const reducer = (state, action) => {
     switch (action.type) {
