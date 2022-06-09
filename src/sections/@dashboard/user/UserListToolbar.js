@@ -9,7 +9,7 @@ import Iconify from '../../../components/Iconify';
 
 
 // ----------------------------------------------------------------------
-const HOME_URL = "http://ec2-34-233-123-100.compute-1.amazonaws.com:8080/api/v1/home/";
+const HOME_URL = "http://ec2-54-237-61-44.compute-1.amazonaws.com:8080/api/v1/home/";
 
 const RootStyle = styled(Toolbar)(({theme}) => ({
     height: 96,
