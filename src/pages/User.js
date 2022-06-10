@@ -81,7 +81,7 @@ export default function User() {
   const [userList, setUserList] = useState([]);
 
   function getData() {
-    axios.get(`http://ec2-54-237-61-44.compute-1.amazonaws.com:8080/api/v1/home`, {headers: {Authorization: localStorage.getItem("jwtToken")}})
+    axios.get(`http://simple-auth.us-east-1.elasticbeanstalk.com/api/v1/home`, {headers: {Authorization: localStorage.getItem("jwtToken")}})
         .then(res => {
           if (res.data.statusCode === 200) {
             setUserList(res.data.data.content);

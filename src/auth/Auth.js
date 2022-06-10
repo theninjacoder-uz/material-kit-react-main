@@ -1,10 +1,10 @@
 import './Auth.css'
 import axios from "axios";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import {useReducer, useState} from "react";
 import account from "../_mock/account";
 
-const AUTH_URL = "http://ec2-54-237-61-44.compute-1.amazonaws.com:8080/api/v1/auth/";
+const AUTH_URL = "http://simple-auth.us-east-1.elasticbeanstalk.com/api/v1/auth/";
 
 const reducer = (state, action) => {
     switch (action.type) {

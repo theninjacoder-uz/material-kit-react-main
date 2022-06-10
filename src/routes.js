@@ -1,6 +1,5 @@
-import {Navigate, Route, Routes, useRoutes} from 'react-router-dom';
+import {Navigate, useRoutes} from 'react-router-dom';
 // layouts
-import Cookies from "js-cookie";
 import User from './pages/User';
 import NotFound from './pages/Page404';
 import Auth from "./auth/Auth";
